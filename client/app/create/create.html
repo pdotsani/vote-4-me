@@ -1,0 +1,26 @@
+<section>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form ng-submit="submitPoll()" ng-model="pollData">
+                <legend>Create Poll</legend>
+                <div class="alert alert-success text-center" ng-show="aCreate">
+                    <button type="button" class="close" data-dismiss="alert"ng-click="closeCreate()">&times;</button>    
+                    Poll Created!
+                </div>
+                <div class="form-group">
+                    <label for="questionInput">Question</label>
+                    <input type="text" class="form-control" id="questionInput" ng-model="question"/>
+                </div>
+                <div class="form-group">
+                    <label for="answerInput">Answers</label>
+                    <div ng-repeat="answer in answers">
+                        <input type="text" class="form-control" id="answerInput"/ ng-model="answer.answer">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info"ng-click="addAnswer()">Add Answer</button>
+                <button type="submit" class="btn btn-success">Create Poll</button>
+                <a class="btn btn-default"ui-sref="dashboard">Back to Dashboard</a>
+            </form>
+        </div>
+    </div>
+</section>

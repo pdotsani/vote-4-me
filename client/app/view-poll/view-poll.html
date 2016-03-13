@@ -1,0 +1,40 @@
+<section>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <!--Author view of poll-->
+            <legend ng-show="isLoggedIn()">{{pollObj.question}}</legend>
+            <ul class="list-group" ng-show="isLoggedIn()" ng-repeat="answer in pollObj.answers">
+                <response></response>
+            </ul>
+            <a ng-href="/view" class="btn btn-default" ng-show="isLoggedIn()">Back to Polls</a>
+            <!--Guest view of poll-->
+            <form ng-submit="vote()"ng-hide="isLoggedIn()">
+                <legend><span ng-hide="isLoggedIn()">A friend wants to know... </span>{{pollObj.question}}</legend>
+                <div class="alert alert-success text-center" ng-show="voted">
+                    Thank you for voting!
+                </div>
+                
+                <div class="form-group poll-answers" ng-hide="isLoggedIn()">
+                    <div ng-repeat="answer in pollObj.answers"for="{{answer._id}}">
+                        <label>
+                            <input type="radio"ng-model="radioVal.selected"ng-value="answer._id"> {{answer.answer}}
+                            <span class="badge"ng-show="isLoggedIn()">{{answer.votes}}</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success"ng-hide="voted">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row share-with-friends">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Copy the link to share this poll with your friends: 
+                <a ng-href="http://vote-4-me.herokuapp.com/viewAPoll/{{pollId}}">
+                    http://vote-4-me.herokuapp.com/viewAPoll/{{pollId}}
+                </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

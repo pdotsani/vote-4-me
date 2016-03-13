@@ -1,0 +1,27 @@
+/* MAIN PAGE STYLINGS */
+#welcome h1 {
+    font-size: 4em;
+}
+#welcome .createButton,
+#welcome .viewButton {
+    width: 100%;
+    color: black;
+    font-size: 2em;
+    border: 2px solid #2C3E50;
+}
+
+#welcome .info-section {
+    margin-top: 25px;
+}
+
+#welcome .warrior-blue {
+    color: #04529C;
+}
+
+#welcome .warrior-yellow {
+    color: #FFCC33;
+}
+
+#welcome .text-off-yellow {
+    color: #F5D76E;
+}

@@ -1,0 +1,15 @@
+<section>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <legend class="text-center">{{getCurrentUser().name}}'s polls</legend>
+      <ul class="list-group" ng-repeat="pollName in pollNames">
+          <view-info></view-info>
+      </ul>
+	  </div>
+  </div>
+  <div class="row">
+  	<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset3">
+    	<a class="btn btn-default btn-block"ui-sref="dashboard">Back to<br>Dashboard</a>
+    </div>
+  </div>
+</section>
