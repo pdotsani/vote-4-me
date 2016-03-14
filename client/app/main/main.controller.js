@@ -4,8 +4,7 @@
 
 class MainController {
 
-  constructor($http) {
-    this.$http = $http;
+  constructor() {
   }
 
 }

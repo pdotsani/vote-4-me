@@ -2,8 +2,19 @@
 (function(){
 
 class CreateComponent {
-  constructor() {
-    this.message = 'Hello';
+  constructor($http) {
+  	this.$http = $http;
+    this.pollData = {};
+  }
+
+  createPoll() {
+  	$http.post('api/posts/',this.pollData)
+  		.success(function(data) {
+  			console.log('success', data);
+
+  		}).catch(function(err) {
+  			console.warn(err);
+  		});
   }
 }
 

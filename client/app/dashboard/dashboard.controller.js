@@ -3,8 +3,7 @@
 
 class DashboardComponent {
   constructor(Auth) {
-    this.isAdmin = Auth.isAdmin;
-    this.getCurrentUser = Auth.getCurrentUser;
+  	this.getCurrentUser = Auth.getCurrentUser;
   }
 }
 

@@ -2,8 +2,8 @@
 (function(){
 
 class ViewComponent {
-  constructor() {
-    this.message = 'Hello';
+  constructor(Auth) {
+    this.getCurrentUser = Auth.getCurrentUser;
   }
 }
 

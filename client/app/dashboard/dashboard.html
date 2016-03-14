@@ -1,6 +1,7 @@
 <section>
   <div class="row">
-      <h2 class="text-center">Welcome <span>{{dash.getCurrentUser.name}}</span></h2>
+      <h2 class="text-center">Welcome <span style="color:#f1c40f;">{{$ctrl.getCurrentUser().name}}</span></h2>
+      <div class="clearfix"></div>
       <div class="col-md-offset-1 col-md-5 col-sm-offset-2 col-sm-4">
       	<a ui-sref="create" class="btn btn-default btn-block">Create<br>Poll</a>
       </div>

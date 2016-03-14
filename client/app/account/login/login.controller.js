@@ -18,7 +18,7 @@ class LoginController {
         email: this.user.email,
         password: this.user.password
       })
-      .then(() => {
+      .then((data) => {
         // Logged in, redirect to dashboard
         this.$state.go('dashboard');
       })
