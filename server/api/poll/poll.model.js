@@ -7,12 +7,12 @@ var PollSchema = new mongoose.Schema({
   owner: {type: mongoose.Schema.Types.ObjectId, required: true},
 
   list: [{
-  	question: {type: String, required: true},
-  	dateCreated: {type: Date, required: true, default: Date.now()},
-  	active: {type: Boolean, default: true, required: true},
+  	question: {type: String,},
+  	dateCreated: {type: Date, default: Date.now()},
+  	active: {type: Boolean, default: true},
 
   	responses: [{
-  		response: {type: String, required: true},
+  		response: {type: String, },
   		count: {type: Number, default: 0}
   	}]
   }]
