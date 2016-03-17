@@ -1,4 +1,4 @@
 <li class="list-group-item">
-    <a ng-href="/viewAPoll/{{pollName.id}}">{{pollName.question}}</a>
-    <span class="deletePoll"ng-click="deletePoll(pollName.id)">delete</span>
+    <a ng-href="viewAPoll/{{poll.id}}">{{poll.question}}</a>
+    <span ng-click="deletePoll(poll)" style="float:right;"><i class="fa fa-minus" style="color:red;"></i></span>
 </li>

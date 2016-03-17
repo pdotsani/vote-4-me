@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <legend class="text-center"><span style="color:#f1c40f;">{{$ctrl.getCurrentUser().name}}'s</span> Polls</legend>
-      <ul class="list-group" ng-repeat="pollName in pollNames">
+      <ul class="list-group" ng-repeat="poll in $ctrl.polls">
           <view-info></view-info>
       </ul>
 	  </div>

@@ -66,6 +66,15 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a list of polls created by the current user
+export function filter(req, res){
+  return Poll.populate({_id: req.body.id})
+      .exec()
+      .then(handleEntityNotFound(res))
+      .then(respondWithResult(res))
+      .catch(handleError(res));
+}
+
 // Gets a single Poll from the DB
 export function show(req, res) {
   return Poll.findById(req.params.id).exec()
