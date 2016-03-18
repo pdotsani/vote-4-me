@@ -15,7 +15,9 @@ angular.module('appApp')
       getMine: {
         method: 'GET',
         isArray: true,
-        controller: 'myPolls'
+        params: {
+          controller: 'myPolls'
+        }
       },
 
   	  create: {
