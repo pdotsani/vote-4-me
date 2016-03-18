@@ -11,7 +11,8 @@ angular.module('appApp', [
   'ui.bootstrap',
   'validation.match',
   'toaster',
-  'ngAnimate'
+  'ngAnimate',
+  'angular-clipboard'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
