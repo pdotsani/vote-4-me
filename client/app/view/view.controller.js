@@ -10,11 +10,11 @@ class ViewComponent {
   }
 
   deletePoll(poll) {
-  	this.toaster.pop({
-  		'warning',
-  		poll.question + ' has been deleted...',
-  		3000
-  	});
+  	this.toaster
+      .pop('warning',
+    		poll.question + ' has been deleted...',
+    		3000
+    	);
   	poll.delete({_id: poll._id});
   } 
 }

@@ -44,8 +44,8 @@ class CreateComponent {
     // Possible refactoring, using call or apply?
     var checkResponses = function(arr) {
       var count = arr.length;
-      arr.forEach(function(el, i) {
-        if(el.response === '') count--;
+      arr.forEach(function(el) {
+        if(el.response === '') {count--;}
       });
       console.log('count: ', count);
       return count >= 3 ? true : false;
@@ -53,8 +53,8 @@ class CreateComponent {
     // Possible refactoring, using call or apply?
     var clearBlankFields = function(arr) {
       for(var i = arr.length-1; i >= 0; i--) {
-        if(arr[i].response === '') arr.slice(-1,1);
-      };
+        if(arr[i].response === '') {arr.slice(-1,1);}
+      }
       return arr;
     };
 
@@ -70,7 +70,7 @@ class CreateComponent {
         .then(function(poll) {
           this.toaster
             .pop('success', 
-              "Poll Created!", 
+              'Poll Created!', 
               poll.question, 
               3000);
           this.resetVars();

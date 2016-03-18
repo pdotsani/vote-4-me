@@ -19,6 +19,10 @@ class LoginController {
         password: this.user.password
       })
       .then((data) => {
+        // Send auth data to $state.user
+        this.$state.user = data;
+        console.log('data: ', data);
+        console.log('$state.user: ', this.$state.user);
         // Logged in, redirect to dashboard
         this.$state.go('dashboard');
       })
