@@ -4,7 +4,7 @@ angular.module('appApp')
   .service('poll', function ($resource) {
     // AngularJS will instantiate a singleton by calling "new" on this function
   	return $resource('/api/polls/:id/:controller', {
-  	  id: '@_id'
+  	  id: '@id'
   	}, {
 
   	  getAll: {

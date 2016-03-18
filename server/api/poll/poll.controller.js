@@ -68,7 +68,7 @@ export function index(req, res) {
 
 // Gets a list of polls created by the current user
 export function filter(req, res){
-  return Poll.populate({_id: req.body.id})
+  return Poll.find({owner: req.params.id})
       .exec()
       .then(handleEntityNotFound(res))
       .then(respondWithResult(res))

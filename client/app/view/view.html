@@ -1,7 +1,7 @@
 <section>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <legend class="text-center"><span style="color:#f1c40f;">{{$ctrl.getCurrentUser().name}}'s</span> Polls</legend>
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <legend class="text-center"><span style="color:#f1c40f;">{{$ctrl.user.name}}'s</span> Polls</legend>
       <ul class="list-group" ng-repeat="poll in $ctrl.polls">
           <view-info></view-info>
       </ul>
@@ -9,7 +9,7 @@
   </div>
   <div class="row">
   	<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-    	<a class="btn btn-default btn-block"ui-sref="dashboard">Back to<br>Dashboard</a>
+    	<button type="button" class="btn btn-default btn-block"ui-sref="dashboard">Back to<br>Dashboard</button>
     </div>
   </div>
 </section>

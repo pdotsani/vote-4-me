@@ -7,7 +7,7 @@ var router = express.Router();
 
 // Add auth to routes
 router.get('/', controller.index);
-router.get('/myPolls', controller.filter);
+router.get('/:id/myPolls', controller.filter);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

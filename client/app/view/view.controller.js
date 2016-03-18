@@ -3,9 +3,8 @@
 
 class ViewComponent {
   constructor(Auth, poll, toaster) {
-    this.getCurrentUser = Auth.getCurrentUser;
-    this.poll = poll;
-    this.polls = poll.getMine();
+    this.user = Auth.getCurrentUser();
+    this.polls = poll.getMine({id: Auth.getCurrentUser()._id});
     this.toaster = toaster;
   }
 
@@ -15,7 +14,8 @@ class ViewComponent {
     		poll.question + ' has been deleted...',
     		3000
     	);
-  	poll.delete({_id: poll._id});
+  	poll.delete({id: poll._id});
+    this.polls = poll.getMine({id: Auth.getCurrentUser()._id});
   } 
 }
 
