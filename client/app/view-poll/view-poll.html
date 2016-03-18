@@ -45,10 +45,11 @@
                     Back to Polls
                 </button>
                 <button
+                    ng-disabled="$ctrl.copiedLink"
                     type="button" 
                     class="btn btn-info btn-block"
                     ng-click="$ctrl.copyLink()">
-                    Copy Url
+                    {{$ctrl.copiedLink ? 'Url copied!' : 'Copy url'}}
                 </button>
             </div>
         </form>

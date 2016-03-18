@@ -2,31 +2,22 @@
 (function(){
 
 class ViewPollComponent {
-  constructor(Auth, poll, toaster, $location, $state, clipboard) {
+  constructor(Auth, poll, $location, $state, clipboard) {
   	this.isLoggedIn = Auth.isLoggedIn();
     this.myPoll = poll.getOne({id: $state.params.id});
-    // fix toaster on this page...
-    this.toaster = toaster;
     this.voted = false;
+    this.copiedLink = false;
     this.loc = $location.$$absUrl;
     this.clipboard = clipboard;
   }
 
   vote() {
-  	// this.toaster
-  	// 	.pop('success',
-  	// 		'Thanks for voting!',
-   //      'we appreciate you!',
-  	// 		3000);
+    // insert Get route
   	this.voted = true;
   }
 
   copyLink() {
-    // this.toaster
-    //   .pop('info',
-    //     'url copied!',
-    //     this.loc,
-    //     3000);
+    this.copiedLink = true;
     this.clipboard
       .copyText(this.loc);
   }
