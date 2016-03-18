@@ -85,6 +85,7 @@ export function show(req, res) {
 
 // Creates a new Poll in the DB
 export function create(req, res) {
+  console.log('In server: ', req.body);
   return Poll.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

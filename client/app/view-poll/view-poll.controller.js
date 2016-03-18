@@ -2,8 +2,19 @@
 (function(){
 
 class ViewPollComponent {
-  constructor() {
-    this.message = 'Hello';
+  constructor(Auth, poll, $state, toaster) {
+  	this.isLoggedIn = Auth.isLoggedIn();
+    this.myPoll = poll.getOne({id: $state.params.id});
+    this.toaster = toaster;
+    this.voted = false;
+  }
+
+  vote() {
+  	this.toaster
+  		.pop('success',
+  			'Thanks for voting!',
+  			3000);
+  	this.voted = true;
   }
 }
 

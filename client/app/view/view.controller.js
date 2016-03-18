@@ -2,7 +2,7 @@
 (function(){
 
 class ViewComponent {
-  constructor(Auth, poll, toaster) {
+  constructor(Auth, poll, toaster, $state) {
     this.user = Auth.getCurrentUser();
     this.polls = poll.getMine({id: Auth.getCurrentUser()._id});
     this.toaster = toaster;

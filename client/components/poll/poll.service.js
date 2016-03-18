@@ -12,6 +12,10 @@ angular.module('appApp')
   	    isArray: true
   	  },
 
+      getOne: {
+        method: 'GET'
+      },
+
       getMine: {
         method: 'GET',
         isArray: true,
@@ -20,6 +24,13 @@ angular.module('appApp')
         }
       },
 
+      vote: {
+        method: 'PUT',
+        params: {
+          controller: 'vote'
+        }
+      },
+      
   	  create: {
   	    method: 'POST'
   	  },
