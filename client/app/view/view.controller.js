@@ -3,19 +3,19 @@
 
 class ViewComponent {
   constructor(Auth, poll, toaster, $state) {
+    this.poll = poll;
+    this.auth = Auth;
     this.user = Auth.getCurrentUser();
     this.polls = poll.getMine({id: Auth.getCurrentUser()._id});
-    this.toaster = toaster;
   }
 
-  deletePoll(poll) {
-  	this.toaster
-      .pop('warning',
-    		poll.question + ' has been deleted...',
-    		3000
-    	);
-  	poll.delete({id: poll._id});
-    this.polls = poll.getMine({id: Auth.getCurrentUser()._id});
+  deletePoll(aPoll) {
+  	this.poll.remove({id: aPoll._id}, 
+      function() {
+        this.polls = this
+        .poll
+        .getMine({id: this.auth.getCurrentUser()._id});
+    }.bind(this));
   } 
 }
 

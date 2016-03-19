@@ -47,7 +47,6 @@ class CreateComponent {
       arr.forEach(function(el) {
         if(el.response === '') {count--;}
       });
-      console.log('count: ', count);
       return count >= 3 ? true : false;
     };
     // Possible refactoring, using call or apply?

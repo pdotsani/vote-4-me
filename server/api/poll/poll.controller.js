@@ -109,7 +109,6 @@ export function vote(req, res) {
   Poll.findById(req.params.id)
     .exec()
     .then(handleEntityNotFound(res))
-    // Add one count to voted item
     .then(function(poll) {
       var update = poll;
       update.responses.forEach(function(response) {
