@@ -2,7 +2,8 @@
     <div class="row">
         <form 
             class="col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-4" 
-            ng-submit="vote()">
+            ng-submit="$ctrl.vote()"
+            novalidate>
             <div class="form-group">
                 <legend>{{$ctrl.myPoll.question}}</legend>
                 <h5>
@@ -11,31 +12,32 @@
             </div>
             <ul class="list-group">
                 <li class="list-group-item"
-                    ng-repeat="answer in $ctrl.myPoll.responses"
+                    ng-repeat="response in $ctrl.myPoll.responses"
                     class="form-group">
                     <input 
                         type="radio"
-                        ng-model="radioVal.selected"
-                        ng-value="answer._id"
-                        ng-hide="$ctrl.isLoggedIn">
+                        ng-model="$ctrl.myVote"
+                        ng-value="response.response"
+                        ng-hide="$ctrl.isLoggedIn || $ctrl.voted">
                     <span
                         style="margin-left:5px;">
-                        {{answer.response}}
+                        {{response.response}}
                     </span>
                     <span
                         class="badge"
                         style="float:right;" 
                         ng-show="$ctrl.isLoggedIn">
-                        {{answer.count}}
+                        {{response.count}}
                     </span>
                 </li>
             </ul>
             <div class="form-group">
                 <button 
-                    type="submit" 
+                    type="submit"
+                    ng-disabled="!$ctrl.myVote || $ctrl.voted"
                     class="btn btn-success btn-block"
-                    ng-hide="voted">
-                    Vote Now!
+                    ng-hide="$ctrl.isLoggedIn">
+                    {{$ctrl.voted ? 'Thanks for Voting!' : 'Vote now'}}
                 </button>
                 <button 
                     type="button" 
@@ -49,7 +51,7 @@
                     type="button" 
                     class="btn btn-info btn-block"
                     ng-click="$ctrl.copyLink()">
-                    {{$ctrl.copiedLink ? 'Url copied!' : 'Copy url'}}
+                    {{$ctrl.copiedLink ? 'Url copied!' : 'Share With Friends'}}
                 </button>
             </div>
         </form>

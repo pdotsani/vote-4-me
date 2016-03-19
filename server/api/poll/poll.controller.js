@@ -11,6 +11,7 @@
 
 import _ from 'lodash';
 import Poll from './poll.model';
+import mongo from 'mongoose';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -68,7 +69,7 @@ export function index(req, res) {
 
 // Gets a list of polls created by the current user
 export function filter(req, res){
-  return Poll.find({owner: req.params.id})
+  return Poll.find({owner: mongo.Types.ObjectId(req.params.id)})
       .exec()
       .then(handleEntityNotFound(res))
       .then(respondWithResult(res))
@@ -101,6 +102,23 @@ export function update(req, res) {
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
+}
+
+export function vote(req, res) {
+  var vote = req.body.vote;
+  Poll.findById(req.params.id)
+    .exec()
+    .then(handleEntityNotFound(res))
+    // Add one count to voted item
+    .then(function(poll) {
+      var update = poll;
+      update.responses.forEach(function(response) {
+        if(vote === response.response) response.count++;
+      });
+      update.save()
+        .then(respondWithResult(res))
+        .catch(handleError(res));
+    }).catch(handleError(res));
 }
 
 // Deletes a Poll from the DB
