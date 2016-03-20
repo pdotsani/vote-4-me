@@ -21,8 +21,7 @@ class ViewPollComponent {
       this.poll.vote({
         id: this.pollId, 
         vote: this.myVote}, 
-          function(data) {
-            console.log('success!', data)
+          function() {
             this.voted = true;
           }.bind(this), function(err) {
             console.warn(err);

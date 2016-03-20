@@ -2,19 +2,19 @@
 (function(){
 
 class ViewComponent {
-  constructor(Auth, poll, toaster, $state) {
+  constructor(Auth, poll, toaster) {
     this.poll = poll;
     this.auth = Auth;
     this.user = Auth.getCurrentUser();
     this.polls = poll.getMine({id: Auth.getCurrentUser()._id});
+    this.toaster = toaster;
   }
 
   deletePoll(aPoll) {
   	this.poll.remove({id: aPoll._id}, 
       function() {
-        this.polls = this
-        .poll
-        .getMine({id: this.auth.getCurrentUser()._id});
+        this.polls = this.poll
+          .getMine({id: this.auth.getCurrentUser()._id});
     }.bind(this));
   } 
 }

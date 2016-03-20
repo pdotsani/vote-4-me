@@ -105,14 +105,14 @@ export function update(req, res) {
 }
 
 export function vote(req, res) {
-  var vote = req.body.vote;
+  var aVote = req.body.vote;
   Poll.findById(req.params.id)
     .exec()
     .then(handleEntityNotFound(res))
     .then(function(poll) {
       var update = poll;
       update.responses.forEach(function(response) {
-        if(vote === response.response) response.count++;
+        if(aVote === response.response) response.count++;
       });
       update.save()
         .then(respondWithResult(res))

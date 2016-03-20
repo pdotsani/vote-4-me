@@ -51,9 +51,9 @@ class CreateComponent {
     };
     // Possible refactoring, using call or apply?
     var clearBlankFields = function(arr) {
-      for(var i = arr.length-1; i >= 0; i--) {
-        if(arr[i].response === '') {arr.slice(-1,1);}
-      }
+      _.remove(arr, function(response) {
+        return response.response === '';
+      })
       return arr;
     };
 

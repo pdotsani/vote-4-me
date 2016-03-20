@@ -5,7 +5,6 @@ angular.module('appApp')
     $stateProvider
       .state('main', {
         url: '/',
-        authenticate: false,
         template: '<main></main>'
       });
   });
