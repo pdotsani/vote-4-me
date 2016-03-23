@@ -414,9 +414,9 @@ module.exports = function (grunt) {
       pre: [
         'ngconstant'
       ],
-      // server: [
-      //   'newer:babel:client',
-      // ],
+      server: [
+        'newer:babel:client',
+      ],
       test: [
         'newer:babel:client',
       ],
@@ -533,20 +533,20 @@ module.exports = function (grunt) {
           dest: '.tmp'
         }]
       },
-      // server: {
-      //   options: {
-      //     optional: ['runtime']
-      //   },
-      //   files: [{
-      //     expand: true,
-      //     cwd: '<%= yeoman.server %>',
-      //     src: [
-      //       '**/*.js',
-      //       '!config/local.env.sample.js'
-      //     ],
-      //     dest: '<%= yeoman.dist %>/<%= yeoman.server %>'
-      //   }]
-      // }
+      server: {
+        options: {
+          optional: ['runtime']
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.server %>',
+          src: [
+            '**/*.js',
+            '!config/local.env.sample.js'
+          ],
+          dest: '<%= yeoman.dist %>/<%= yeoman.server %>'
+        }]
+      }
     },
 
     injector: {
@@ -759,7 +759,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    // 'babel:server',
+    'babel:server',
     // 'cdnify',
     'cssmin',
     'uglify',
