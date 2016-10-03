@@ -399,12 +399,12 @@ module.exports = function (grunt) {
         dir: '<%= yeoman.dist %>',
         commit: true,
         push: true,
-        connectCommits: false,
+        connectCommits: true,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
       heroku: {
         options: {
-          remote: 'heroku',
+          remote: 'https://git.heroku.com/vote-4-me.git',
           branch: 'master'
         }
       },
